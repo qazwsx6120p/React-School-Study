@@ -15,11 +15,14 @@ function App() {
         {menuItems.map((v, i) => {
           return (
             <li
+              //記得加key
               key={i}
+              //點擊li時更新當前用map跑出的v狀態
               onClick={() => {
                 setSelectedItem(v);
               }}
             >
+              {/* 假如v狀態為更新完後的狀態(當前點擊)則為它添加上active反之則不添加 */}
               <a href="#/" className={v === selectedItem ? 'active' : ''}>
                 {v}
               </a>

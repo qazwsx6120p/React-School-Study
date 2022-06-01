@@ -3,7 +3,7 @@ function Child({ text, fullName, color }) {
     <>
       {fullName}, {text}, {color}
     </>
-  )
+  );
 }
 
-export default Child
+export default Child;

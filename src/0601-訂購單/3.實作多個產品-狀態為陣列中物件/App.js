@@ -1,9 +1,9 @@
-import Parent from './ex-0530-2/Parent';
+import OrderPage from './ex-0601-1/OrderPage';
 
 function App() {
   return (
     <>
-      <Parent />
+      <OrderPage />
     </>
   );
 }

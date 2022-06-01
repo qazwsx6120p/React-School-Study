@@ -4,7 +4,7 @@ function ChildA(props) {
       <h1>ChildA</h1>
       來自Parent資料: {props.pData}
     </>
-  )
+  );
 }
 
-export default ChildA
+export default ChildA;

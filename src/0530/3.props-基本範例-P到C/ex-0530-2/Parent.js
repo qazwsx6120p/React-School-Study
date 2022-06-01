@@ -1,11 +1,11 @@
-import Child from './Child'
+import Child from './Child';
 
 function Parent() {
   return (
     <>
       <Child text="Hello" fullName="Amy" />
     </>
-  )
+  );
 }
 
-export default Parent
+export default Parent;

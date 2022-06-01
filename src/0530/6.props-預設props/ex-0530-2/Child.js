@@ -3,12 +3,12 @@ function Child({ text, fullName }) {
     <>
       {fullName}, {text}
     </>
-  )
+  );
 }
 
 Child.defaultProps = {
   fullName: 'Eddy',
   text: '沒給定',
-}
+};
 
-export default Child
+export default Child;
