@@ -27,11 +27,11 @@ import './index.css';
 // import HomeWork3 from './0530/12.練習題/HomeWork3';
 // import OrderPage from './0530/13.OrderPage/App';
 //---------------------0601---------------------
-// import OrderPageOperate1 from './0601-訂購單/1.實作單一產品功能/App';
-// import OrderPageOperate2 from './0601-訂購單/2.實作多個產品-狀態為陣列/App';
-// import OrderPageOperate3 from './0601-訂購單/3.實作多個產品-狀態為陣列中物件/App';
-// import OrderPageOperate4 from './0601-訂購單/4.實作多個產品-刪除功能/App';
-import Input1 from './0601-Input/1.Controlled';
+// import OrderPageOperate1 from './0601/0601-訂購單/1.實作單一產品功能/App';
+// import OrderPageOperate2 from './0601/0601-訂購單/2.實作多個產品-狀態為陣列/App';
+import OrderPageOperate3 from './0601/0601-訂購單/3.實作多個產品-狀態為陣列中物件/App';
+// import OrderPageOperate4 from './0601/0601-訂購單/4.實作多個產品-刪除功能/App';
+// import Input1 from './0601/0601-Input/1.Controlled';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -65,9 +65,9 @@ root.render(
     {/*----------0601----------*/}
     {/* <OrderPageOperate1 /> */}
     {/* <OrderPageOperate2 /> */}
-    {/* <OrderPageOperate3 /> */}
+    <OrderPageOperate3 />
     {/* <OrderPageOperate4 />/ */}
-    <Input1 />
+    {/* <Input1 /> */}
   </React.StrictMode>
 );
 
