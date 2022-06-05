@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-function MultipleInput(props) {
+function MultipleInput() {
+  //給初始化狀態兩個空物件
   const [userData, setUserData] = useState({
     fullName: '',
     phone: '',
@@ -10,6 +11,12 @@ function MultipleInput(props) {
     console.log(e.target.type, e.target.name, e.target.value);
 
     //https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%90%8D
+
+    //創建一個新物件，用來增加新增的值
+    //先展開原本的物件值
+    //[e.target.name]為name的fullName
+    //state會顯示 --> fullName : 輸入的值
+    //覆蓋原本狀態中的空陣列
     const newUserData = { ...userData, [e.target.name]: e.target.value };
 
     setUserData(newUserData);
@@ -21,8 +28,11 @@ function MultipleInput(props) {
         <label>姓名</label>
         <input
           type="text"
+          //表單元素要設名子
           name="fullName"
+          //傳給後端的值，userData.fullName
           value={userData.fullName}
+          //創建事件，將事件的函數寫在上面
           onChange={handleChange}
         />
       </div>

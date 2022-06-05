@@ -31,7 +31,8 @@ import './index.css';
 // import OrderPageOperate2 from './0601/0601-訂購單/2.實作多個產品-狀態為陣列/App';
 // import OrderPageOperate3 from './0601/0601-訂購單/3.實作多個產品-狀態為陣列中物件/App';
 // import OrderPageOperate4 from './0601/0601-訂購單/4.實作多個產品-刪除功能/App';
-import Input1 from './0601/0601-Input/1.Controlled';
+// import Input1 from './0601/0601-Input/1.Controlled';
+import MultpleInput from './0601/0601-MultpleInput/MultpleInput';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -67,7 +68,8 @@ root.render(
     {/* <OrderPageOperate2 /> */}
     {/* <OrderPageOperate3 /> */}
     {/* <OrderPageOperate4 /> */}
-    <Input1 />
+    {/* <Input1 /> */}
+    <MultpleInput />
   </React.StrictMode>
 );
 
