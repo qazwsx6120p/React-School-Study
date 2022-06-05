@@ -2,6 +2,7 @@ import React from 'react';
 import ProductItem from './ProductItem';
 
 function OrderList(props) {
+  //將OderPage 傳送來的"商品列表"跟"更新商品列表狀態的函數"進行解構
   const { productsInOrder, setProductsInOrder } = props;
 
   return (
@@ -19,10 +20,13 @@ function OrderList(props) {
             </div>
           </div>
         </div>
+        {/* 利用mpa將傳送過來"更新完狀態的商品列表"利用map跑出所有"更新完狀態的商品列表"的陣列 */}
         {productsInOrder.map((product, i) => {
+          // 將map跑出的所有陣列解構賦值
           const { id, name, categroy, image, price, count } = product;
 
           return (
+            //將map跑出的所有陣列的解構賦值傳送給ProductItem
             <ProductItem
               key={id}
               id={id}

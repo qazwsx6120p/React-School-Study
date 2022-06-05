@@ -43,7 +43,6 @@ function ProductItem(props) {
             </a>
           </div>
           <div className="col">
-            ${price}{' '}
             <span className="close" onClick={removeItem}>
               &#10005;
             </span>

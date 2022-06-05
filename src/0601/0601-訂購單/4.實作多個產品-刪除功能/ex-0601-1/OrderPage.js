@@ -48,12 +48,14 @@ function OrderPage() {
   //   count: 1
   //   }
   // ]
+  //設定productsInOrder的狀態
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
 
   const totalNumber = () => {
     let result = 0;
 
     for (let i = 0; i < productsInOrder.length; i++) {
+      //利用for迴圈將每次productsInOrder跑出來的數量+0 = 總數量
       result += productsInOrder[i].count;
     }
 
@@ -64,6 +66,8 @@ function OrderPage() {
     let result = 0;
 
     for (let i = 0; i < productsInOrder.length; i++) {
+      //利用for迴圈將每次productsInOrder跑出來的數量 x
+      //利用for迴圈將每次productsInOrder跑出來的價格 + result(0) = 總價格
       result += productsInOrder[i].count * productsInOrder[i].price;
     }
 
@@ -73,10 +77,12 @@ function OrderPage() {
   return (
     <div className="card">
       <div className="row">
+        {/* 將更新完的商品列表 跟 設定商品列表狀態的函數傳給 OrderList */}
         <OrderList
           productsInOrder={productsInOrder}
           setProductsInOrder={setProductsInOrder}
         />
+        {/* 將總數量跟總價格的值傳給 Summary */}
         <Summary totalNumber={totalNumber()} totalPrice={totalPrice()} />
       </div>
     </div>
