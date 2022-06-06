@@ -31,8 +31,20 @@ import './index.css';
 // import OrderPageOperate2 from './0601/0601-訂購單/2.實作多個產品-狀態為陣列/App';
 // import OrderPageOperate3 from './0601/0601-訂購單/3.實作多個產品-狀態為陣列中物件/App';
 // import OrderPageOperate4 from './0601/0601-訂購單/4.實作多個產品-刪除功能/App';
-// import Input1 from './0601/0601-Input/1.Controlled';
-import MultpleInput from './0601/0601-MultpleInput/MultpleInput';
+// import Input1 from './0601/0601-Input.CheckBox/1.Controlled';
+// import MultpleInput from './0601/0601-多重输入表單/MultpleInput';
+//---------------------0606---------------------
+// import BMI from './0606/1.BMI計算-練習-介面/App';
+// import BMI2 from './0606/2.BMI計算-練習-完成/App';
+// import Postcode from './0606/3.郵遞區號連動下拉選單-完成-1/App';
+// import Postcode2 from './0606/3.郵遞區號連動下拉選單-完成-索引狀態/App';
+// import Postcode3 from './0606/4.郵遞區號連動下拉選單-完成-值狀態/App';
+// import HTML5 from './0606/6.HTML5表單驗証-示範/App';
+// import HTML5_2 from './0606/7.HTML5表單驗証-formdata與state/App';
+// import HTML5_3 from './0606/8.HTML5表單驗証-共用state物件/App';
+// import HTML5_4 from './0606/9.HTML5表單驗証-驗証訊息自訂位置呈現/App';
+// import HTML5_5 from './0606/10.HTML5表單驗証-加入checkbox與radio/App';
+import HTML5_6 from './0606/11.HTML5表單驗証-密碼與確認密碼-自訂驗証/App';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -69,7 +81,19 @@ root.render(
     {/* <OrderPageOperate3 /> */}
     {/* <OrderPageOperate4 /> */}
     {/* <Input1 /> */}
-    <MultpleInput />
+    {/* <MultpleInput /> */}
+    {/*----------0606----------*/}
+    {/* <BMI /> */}
+    {/* <BMI2 /> */}
+    {/* <Postcode /> */}
+    {/* <Postcode2 /> */}
+    {/* <Postcode3 /> */}
+    {/* <HTML5 /> */}
+    {/* <HTML5_2 /> */}
+    {/* <HTML5_3 /> */}
+    {/* <HTML5_4 /> */}
+    {/* <HTML5_5 /> */}
+    <HTML5_6 />
   </React.StrictMode>
 );
 
