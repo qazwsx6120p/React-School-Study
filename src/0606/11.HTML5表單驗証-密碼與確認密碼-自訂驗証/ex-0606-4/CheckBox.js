@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function CheckBox(props) {
-  const { value } = props
+  const { value } = props;
 
   return (
     <>
@@ -9,7 +9,7 @@ function CheckBox(props) {
       <input type="checkbox" {...props} />
       <label>{value}</label>
     </>
-  )
+  );
 }
 
-export default CheckBox
+export default CheckBox;

@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function RadioButton(props) {
-  const { name, value, checkedValue, handleFieldChange, ...otherProps } = props
+  const { name, value, checkedValue, handleFieldChange, ...otherProps } = props;
 
   return (
     <>
@@ -15,7 +15,7 @@ function RadioButton(props) {
       />
       <label>{value}</label>
     </>
-  )
+  );
 }
 
-export default RadioButton
+export default RadioButton;

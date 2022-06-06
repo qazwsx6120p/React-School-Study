@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 function HTML5Form() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
+  //將狀態初始化
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <>
@@ -13,9 +14,11 @@ function HTML5Form() {
         <input
           type="text"
           name="username"
+          // 傳入後端的值 {更新後狀態}
           value={username}
+          // 修改事件
           onChange={(e) => {
-            setUsername(e.target.value)
+            setUsername(e.target.value);
           }}
           required
         />
@@ -26,7 +29,7 @@ function HTML5Form() {
           name="password"
           value={password}
           onChange={(e) => {
-            setPassword(e.target.value)
+            setPassword(e.target.value);
           }}
           required
         />
@@ -37,15 +40,16 @@ function HTML5Form() {
           name="email"
           value={email}
           onChange={(e) => {
-            setEmail(e.target.value)
+            setEmail(e.target.value);
           }}
           required
         />
         <br />
+        {/* 將表單送出需使用type="submit" */}
         <button type="submit">送出</button>
       </form>
     </>
-  )
+  );
 }
 
-export default HTML5Form
+export default HTML5Form;

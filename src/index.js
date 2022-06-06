@@ -43,8 +43,8 @@ import './index.css';
 // import HTML5_2 from './0606/7.HTML5表單驗証-formdata與state/App';
 // import HTML5_3 from './0606/8.HTML5表單驗証-共用state物件/App';
 // import HTML5_4 from './0606/9.HTML5表單驗証-驗証訊息自訂位置呈現/App';
-// import HTML5_5 from './0606/10.HTML5表單驗証-加入checkbox與radio/App';
-import HTML5_6 from './0606/11.HTML5表單驗証-密碼與確認密碼-自訂驗証/App';
+import HTML5_5 from './0606/10.HTML5表單驗証-加入checkbox與radio/App';
+// import HTML5_6 from './0606/11.HTML5表單驗証-密碼與確認密碼-自訂驗証/App';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -92,8 +92,8 @@ root.render(
     {/* <HTML5_2 /> */}
     {/* <HTML5_3 /> */}
     {/* <HTML5_4 /> */}
-    {/* <HTML5_5 /> */}
-    <HTML5_6 />
+    <HTML5_5 />
+    {/* <HTML5_6 /> */}
   </React.StrictMode>
 );
 
