@@ -35,6 +35,8 @@ function OrderList(props) {
               price={price}
               image={image}
               count={count}
+              // 將 setCount (自己定義的函數)函數傳給 ProductItem
+              // 由 ProductItem 呼叫 ProductItem 28行
               setCount={(newCount) => {
                 // 1. 從目前的狀態"拷貝"出一個新的變數值(陣列/物件)
                 // 注意要用map，因為要深拷貝到第一層的物件
