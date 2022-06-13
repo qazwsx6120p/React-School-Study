@@ -85,7 +85,7 @@ function UserList() {
     </table>
   );
 
-  // 有錯誤訊息即呈現錯誤
+  // 有錯誤訊息即呈現錯誤，如果沒有正常顯示使用者資料Table
   const display = error !== '' ? error : displayTable;
 
   return (

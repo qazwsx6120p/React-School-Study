@@ -4,13 +4,13 @@ function StateTest(props) {
   const [name, setName] = useState('Bob');
 
   // didMount + didUpdate
-  useEffect(() => {
-    setName('John');
-  }, [name]);
+  // useEffect(() => {
+  //   setName('John');
+  // }, [name]);
 
   return (
     <div>
-      StateTest
+      {name}
       <button onClick={() => setName('Amy')}>change name to Amy</button>
     </div>
   );

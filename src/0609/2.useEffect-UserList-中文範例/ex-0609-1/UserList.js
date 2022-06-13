@@ -25,17 +25,16 @@ function UserList() {
       }, 2000);
     }
   }, [isLoading]);
-
   // didMount
   useEffect(() => {
     // 開啟載入指示動畫
     setIsLoading(true);
-
     // 向伺服器要資料
     fetchUser();
   }, []);
 
   const spinner = (
+    //先讓thead佔位子
     <table>
       <thead>
         <tr>

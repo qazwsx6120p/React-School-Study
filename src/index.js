@@ -45,7 +45,7 @@ import './index.css';
 // import HTML5_4 from './0606/9.HTML5表單驗証-驗証訊息自訂位置呈現/App';
 // import HTML5_5 from './0606/10.HTML5表單驗証-加入checkbox與radio/App';
 // import HTML5_6 from './0606/11.HTML5表單驗証-密碼與確認密碼-自訂驗証/App';
-//---------------------0606---------------------
+//---------------------0607---------------------
 // import Refs from './0607/1.refs-與id的比較範例/App';
 // import App from './0607/2.生命周期-更新階段/App';
 // import Class from './0607/3.Class類別型元件-生命週期/App';
@@ -55,12 +55,12 @@ import './index.css';
 // import UserList from './0607/7.從server獲取資料-UserList-1/App';
 //---------------------0609---------------------
 // import UseEffectUserList1 from './0609/1.useEffect-demo講解/App';
-// import UseEffectUserList2 from './0609/2.useEffect-UserList-中文範例/App';
+import UseEffectUserList2 from './0609/2.useEffect-UserList-中文範例/App';
 // import UseEffectUserListError from './0609/3.useEffect-UserList-錯誤處理/App';
 // import UseEffectUserListFilterName from './0609/4.useEffect-UserList-搜尋姓名/App';
 // import UseEffectUserListIdSort from './0609/5.useEffect-UserList-以ID排序/App';
 // import UseEffectUserListIdSort2 from './0609/6.userEffect-UserList-以ID排序-didUpdate解法/App';
-import UseEffectUserListIdSort3 from './0609/7.userEffect-UserList-完全以didUpdate解法/App';
+// import UseEffectUserListIdSort3 from './0609/7.userEffect-UserList-完全以didUpdate解法/App';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -110,7 +110,7 @@ root.render(
     {/* <HTML5_4 /> */}
     {/* <HTML5_5 /> */}
     {/* <HTML5_6 /> */}
-    {/*----------0606----------*/}
+    {/*----------0607----------*/}
     {/* <Refs /> */}
     {/* <App /> */}
     {/* <Class /> */}
@@ -120,12 +120,12 @@ root.render(
     {/* <UserList /> */}
     {/*----------0609----------*/}
     {/* <UseEffectUserList1 /> */}
-    {/* <UseEffectUserList2 /> */}
+    <UseEffectUserList2 />
     {/* <UseEffectUserListError /> */}
     {/* <UseEffectUserListFilterName /> */}
     {/* <UseEffectUserListIdSort /> */}
     {/* <UseEffectUserListIdSort2 /> */}
-    <UseEffectUserListIdSort3 />
+    {/* <UseEffectUserListIdSort3 /> */}
   </React.StrictMode>
 );
 
