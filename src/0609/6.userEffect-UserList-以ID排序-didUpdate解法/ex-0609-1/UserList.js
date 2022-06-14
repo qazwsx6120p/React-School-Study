@@ -1,43 +1,43 @@
-import { useState, useEffect } from 'react'
-import './UserList.css'
+import { useState, useEffect } from 'react';
+import './UserList.css';
 
 function UserList() {
-  const [users, setUsers] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // 搜尋用
-  const [searchWord, setSearchWord] = useState('')
+  const [searchWord, setSearchWord] = useState('');
 
   // 旗標(控制生命周期是否完成mount，進入update階段)
-  const [isMount, setIsMount] = useState(false)
+  const [isMount, setIsMount] = useState(false);
 
   // 排序 (asc / desc)
-  const [order, setOrder] = useState('asc')
+  const [order, setOrder] = useState('asc');
 
   // 錯誤訊息用
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
 
   // 向server獲取資料(get)
   const fetchUser = async () => {
     try {
       const response = await fetch(
         'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
-      )
-      const data = await response.json()
+      );
+      const data = await response.json();
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(data)) {
-        setUsers(data)
+        setUsers(data);
       } else {
-        setError('伺服器目前無法回傳資料，請稍後重試')
+        setError('伺服器目前無法回傳資料，請稍後重試');
       }
     } catch (e) {
       //console.error(e)
-      setError(e.message)
+      setError(e.message);
     }
-  }
+  };
 
   // 向server獲取資料(get)，用searchWord搜尋
   const fetchUserFilter = async () => {
@@ -47,52 +47,52 @@ function UserList() {
           searchWord +
           '&_sort=id&_order=' +
           order
-      )
-      const data = await response.json()
+      );
+      const data = await response.json();
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(data)) {
-        setUsers(data)
+        setUsers(data);
       } else {
-        setError('伺服器目前無法回傳資料，請稍後重試')
+        setError('伺服器目前無法回傳資料，請稍後重試');
       }
     } catch (e) {
       //console.error(e)
-      setError(e.message)
+      setError(e.message);
     }
-  }
+  };
 
   // 自動2秒後關起載入動畫
   useEffect(() => {
     if (isLoading) {
       setTimeout(() => {
-        setIsLoading(false)
-      }, 1200)
+        setIsLoading(false);
+      }, 1200);
     }
-  }, [isLoading])
+  }, [isLoading]);
 
   // didMount
   useEffect(() => {
     // 開啟載入指示動畫
-    setIsLoading(true)
+    setIsLoading(true);
 
     // 向伺服器要第一次的資料
-    fetchUser()
+    fetchUser();
 
     // 設定進入更新狀態的旗標
-    setIsMount(true)
-  }, [])
+    setIsMount(true);
+  }, []);
 
   useEffect(() => {
     // 已經在更新階段
     if (isMount) {
       // 開啟指示動畫
-      setIsLoading(true)
-      fetchUserFilter()
+      setIsLoading(true);
+      fetchUserFilter();
     }
-  }, [order])
+  }, [order]);
 
   const spinner = (
     <>
@@ -106,7 +106,7 @@ function UserList() {
         <span className="visually-hidden">Loading...</span>
       </div>
     </>
-  )
+  );
 
   const displayTable = (
     <table>
@@ -125,14 +125,14 @@ function UserList() {
               <td>{v.name}</td>
               <td>{v.birth}</td>
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
-  )
+  );
 
   // 有錯誤訊息即呈現錯誤
-  const display = error !== '' ? error : displayTable
+  const display = error !== '' ? error : displayTable;
 
   return (
     <>
@@ -143,13 +143,13 @@ function UserList() {
           placeholder="輸入姓名"
           value={searchWord}
           onChange={(e) => {
-            setSearchWord(e.target.value)
+            setSearchWord(e.target.value);
           }}
         />
         <button
           onClick={() => {
             // 用searchWord進行向server重要資料
-            fetchUserFilter()
+            fetchUserFilter();
           }}
         >
           搜尋
@@ -158,7 +158,7 @@ function UserList() {
           onClick={() => {
             // 用order=asc進行向server重要資料
             // fetch在didUpdate裡進行，確保order已設定完成
-            setOrder('asc')
+            setOrder('asc');
 
             // 注意: 以下程式寫法會抵觸到setState異步執行
             // 實際上setOrder會比fetch更慢(晚)執行
@@ -173,11 +173,11 @@ function UserList() {
         <button
           onClick={() => {
             // 開啟指示動畫
-            setIsLoading(true)
+            setIsLoading(true);
 
             // 用order=desc進行向server重要資料
             // fetch在didUpdate裡進行，確保order已設定完成
-            setOrder('desc')
+            setOrder('desc');
           }}
         >
           ID從大到小排序
@@ -185,7 +185,7 @@ function UserList() {
       </div>
       {isLoading ? spinner : display}
     </>
-  )
+  );
 }
 
-export default UserList
+export default UserList;
