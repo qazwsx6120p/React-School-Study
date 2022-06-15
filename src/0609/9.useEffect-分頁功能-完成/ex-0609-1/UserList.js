@@ -1,35 +1,38 @@
-import { useState, useEffect } from 'react'
-import './UserList.css'
+import { useState, useEffect } from 'react';
+import './UserList.css';
 
 function UserList() {
   // 原始資料 目前不需要
   // const [users, setUsers] = useState([])
-  // 真正每分頁要呈現的資料
-  const [usersDisplay, setUsersDisplay] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+
+  // 添加篩選條件之後呈現的資料
+  const [usersDisplay, setUsersDisplay] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // 搜尋用
   // 輸入用
-  const [searchWordInput, setSearchWordInput] = useState('')
+  const [searchWordInput, setSearchWordInput] = useState('');
   // 按下"搜尋"按鈕時，送到伺服器用
-  const [searchWord, setSearchWord] = useState('')
+  const [searchWord, setSearchWord] = useState('');
 
   // 旗標(元件生命周期是否已經mount，進入update階段)
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
   // 排序 (asc | desc)
-  const [order, setOrder] = useState('asc')
+  const [order, setOrder] = useState('asc');
 
   // 錯誤訊息用
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
 
   // 分頁用
   // pageNow 目前在第幾頁
   // perPage 每頁多少項目
   // pageTotal 總共多少頁
-  const [pageNow, setPageNow] = useState(1) //初始化1，至少會有1頁
-  const [perPage, setPerPage] = useState(3)
-  const [pageTotal, setPageTotal] = useState(1) //初始化1，至少會有1頁
+  const [pageNow, setPageNow] = useState(1); //初始化1，至少會有1頁
+  const [perPage, setPerPage] = useState(3);
+  const [pageTotal, setPageTotal] = useState(1); //初始化1，至少會有1頁
+
+  // --------------------向server獲取所有資料--------------------
 
   // 向server獲取資料(get)
   // 此方式在資料非常多時(1k~)，無效率可言，應由server直接給資料列數量
@@ -37,8 +40,8 @@ function UserList() {
     try {
       const response = await fetch(
         'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
-      )
-      const data = await response.json()
+      );
+      const data = await response.json();
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
@@ -47,38 +50,43 @@ function UserList() {
         // console.log(data)
         //setUsers(data)
         // 依回應資料長度，設定pageTotal
-        setPageTotal(Math.ceil(data.length / perPage))
+        setPageTotal(Math.ceil(data.length / perPage));
       } else {
-        setError('伺服器目前無法回傳資料，請稍後重試')
+        setError('伺服器目前無法回傳資料，請稍後重試');
       }
     } catch (e) {
       //console.error(e)
-      setError(e.message)
+      setError(e.message);
     }
-  }
+  };
+
+  // --------------------得到第一頁的資料--------------------
 
   // 第一次得到第一頁的資料
   const fetchUserFirstPage = async () => {
     try {
+      //_page=1&_limit= <--獲取第一頁資料 & 每頁幾筆 perPage
       const response = await fetch(
         'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users?_page=1&_limit=' +
           perPage
-      )
-      const data = await response.json()
+      );
+      const data = await response.json();
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(data)) {
-        setUsersDisplay(data)
+        setUsersDisplay(data);
       } else {
-        setError('伺服器目前無法回傳資料，請稍後重試')
+        setError('伺服器目前無法回傳資料，請稍後重試');
       }
     } catch (e) {
       //console.error(e)
-      setError(e.message)
+      setError(e.message);
     }
-  }
+  };
+
+  // --------------------用searchWord, 按order，分頁用呈現的資料--------------------
 
   // 向server獲取資料(get)，用searchWord, 按order，分頁...用
   const fetchUserFilter = async () => {
@@ -92,22 +100,25 @@ function UserList() {
           pageNow +
           '&_limit=' +
           perPage
-      )
-      const data = await response.json()
+      );
+      const data = await response.json();
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(data)) {
-        setUsersDisplay(data)
+        //篩選過後的資料設定
+        setUsersDisplay(data);
       } else {
-        setError('伺服器目前無法回傳資料，請稍後重試')
+        setError('伺服器目前無法回傳資料，請稍後重試');
       }
     } catch (e) {
       //console.error(e)
-      setError(e.message)
+      setError(e.message);
     }
-  }
+  };
+
+  // --------------------用searchWord, 重新計算pageTotal用的資料--------------------
 
   // 向server獲取資料(get)，用searchWord搜尋，重新計算pageTotal用
   // 此方式在資料非常多時(1k~)，無效率可言，應由server直接給資料列數量
@@ -118,72 +129,77 @@ function UserList() {
           searchWord +
           '&_sort=id&_order=' +
           order
-      )
-      const data = await response.json()
+      );
+      const data = await response.json();
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(data)) {
-        // 計算出有變時
+        // 篩選過後的總頁數值!==現在的總頁數值時
+        // 重新設定篩選過後的總頁數值回去狀態內
         if (Math.ceil(data.length / perPage) !== pageTotal) {
           // 重新設定pageTotal
-          setPageTotal(Math.ceil(data.length / perPage))
+          setPageTotal(Math.ceil(data.length / perPage));
           // 強制回第一頁
-          setPageNow(1)
+          setPageNow(1);
         }
       } else {
-        setError('伺服器目前無法回傳資料，請稍後重試')
+        setError('伺服器目前無法回傳資料，請稍後重試');
       }
     } catch (e) {
       //console.error(e)
-      setError(e.message)
+      setError(e.message);
     }
-  }
+  };
 
-  // 自動2秒後關起載入動畫
+  // --------------------自動2秒後關起載入動畫--------------------
+
   useEffect(() => {
     if (isLoading) {
       setTimeout(() => {
-        setIsLoading(false)
-      }, 1200)
+        setIsLoading(false);
+      }, 1200);
     }
-  }, [isLoading])
+  }, [isLoading]);
 
-  // // didMount
+  // --------------------didMount--------------------
+
   useEffect(() => {
     // 開啟載入指示動畫
-    setIsLoading(true)
+    setIsLoading(true);
 
     // 向伺服器要第一次的資料
-    fetchUserPageTotalFirstTime()
-    fetchUserFirstPage()
+    fetchUserPageTotalFirstTime();
+    fetchUserFirstPage();
 
     // 設定進入更新狀態的旗標
-    setIsMounted(true)
-  }, [])
+    setIsMounted(true);
+  }, []);
 
-  // didMount+didUpdate
+  // --------------------didMount+didUpdate--------------------
+
   useEffect(() => {
     // didUpdate// 已經在更新階段
     if (isMounted) {
       // 開啟指示動畫
-      setIsLoading(true)
+      setIsLoading(true);
       // 向伺服器要更新資料(含分頁)
-      fetchUserFilter()
+      fetchUserFilter();
     }
-  }, [order, searchWord, pageNow])
+  }, [order, searchWord, pageNow]);
 
-  // searchWord有可能會更動到整個呈現的數量 -> 改變pageTotal
+  // --------------------searchWord有可能會更動到整個呈現的數量 -> 改變pageTotal--------------------
+
   useEffect(() => {
     // didUpdate// 已經在更新階段
     if (isMounted) {
       // 開啟指示動畫
-      setIsLoading(true)
+      setIsLoading(true);
       // 向伺服器要PageTotal更新資料
-      fetchUserFilterPageTotal()
+      fetchUserFilterPageTotal();
     }
-  }, [searchWord])
+  }, [searchWord]);
 
   const spinner = (
     <>
@@ -197,7 +213,7 @@ function UserList() {
         <span className="visually-hidden">Loading...</span>
       </div>
     </>
-  )
+  );
 
   const displayTable = (
     <table>
@@ -216,11 +232,11 @@ function UserList() {
               <td>{v.name}</td>
               <td>{v.birth}</td>
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
-  )
+  );
 
   const pagination = (
     <>
@@ -231,7 +247,7 @@ function UserList() {
               className="page-link"
               href="#/"
               onClick={() => {
-                setPageNow(1)
+                setPageNow(1);
               }}
             >
               最前頁
@@ -251,20 +267,20 @@ function UserList() {
                     className="page-link"
                     href="#/"
                     onClick={() => {
-                      setPageNow(i + 1)
+                      setPageNow(i + 1);
                     }}
                   >
                     {i + 1}
                   </a>
                 </li>
-              )
+              );
             })}
           <li className="page-item">
             <a
               className="page-link"
               href="#/"
               onClick={() => {
-                setPageNow(pageTotal)
+                setPageNow(pageTotal);
               }}
             >
               最後頁
@@ -273,10 +289,10 @@ function UserList() {
         </ul>
       </nav>
     </>
-  )
+  );
 
   // 有錯誤訊息即呈現錯誤
-  const display = error !== '' ? error : displayTable
+  const display = error !== '' ? error : displayTable;
 
   return (
     <>
@@ -287,13 +303,13 @@ function UserList() {
           placeholder="輸入姓名"
           value={searchWordInput}
           onChange={(e) => {
-            setSearchWordInput(e.target.value)
+            setSearchWordInput(e.target.value);
           }}
         />
         <button
           onClick={() => {
             // 將輸入的搜尋字詞，設定到要送到server的字詞
-            setSearchWord(searchWordInput)
+            setSearchWord(searchWordInput);
           }}
         >
           搜尋
@@ -302,7 +318,7 @@ function UserList() {
           onClick={() => {
             // 用order=asc進行向server重要資料
             // fetch在didUpdate裡進行，確保order已設定完成
-            setOrder('asc')
+            setOrder('asc');
 
             // 注意: 以下程式寫法會抵觸到setState異步執行
             // 實際上setOrder會比fetch更慢(晚)執行
@@ -318,7 +334,7 @@ function UserList() {
           onClick={() => {
             // 用order=desc進行向server重要資料
             // fetch在didUpdate裡進行，確保order已設定完成
-            setOrder('desc')
+            setOrder('desc');
           }}
         >
           ID從大到小排序
@@ -327,7 +343,7 @@ function UserList() {
       {isLoading ? spinner : display}
       <div>{pagination}</div>
     </>
-  )
+  );
 }
 
-export default UserList
+export default UserList;

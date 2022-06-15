@@ -10,7 +10,6 @@ function UserList() {
   const [searchWordInput, setSearchWordInput] = useState('');
   // 按下"搜尋"按鈕時，送到伺服器用
   const [searchWord, setSearchWord] = useState('');
-
   // 旗標(控制生命周期是否完成mount，進入update階段)
   const [isMounted, setIsMounted] = useState(false);
 
@@ -76,14 +75,12 @@ function UserList() {
     }
   }, [isLoading]);
 
-  // // didMount
+  // didMount
   useEffect(() => {
     // 開啟載入指示動畫
     setIsLoading(true);
-
     // 向伺服器要第一次的資料
     fetchUser();
-
     // 設定進入更新狀態的旗標
     setIsMounted(true);
   }, []);

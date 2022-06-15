@@ -92,10 +92,8 @@ function UserList() {
   useEffect(() => {
     // 開啟載入指示動畫
     setIsLoading(true);
-
     // 向伺服器要第一次的資料
     fetchUser();
-
     // 設定進入更新狀態的旗標
     setIsMounted(true);
   }, []);
@@ -164,12 +162,15 @@ function UserList() {
             </a>
           </li>
           {/* 創造一個陣列，陣列長度為總頁數，然後陣列塞滿1 */}
+          {/* 利用Array(5).fill(將陣列填滿1) */}
           {/* 假如是5頁，就塞滿[1,1,1,1,1] */}
           {Array(pageTotal)
             .fill(1)
             .map((v, i) => {
               return (
                 <li
+                  // 樣板字串
+                  // 判斷頁碼跟pageNow一樣的話給他一個active
                   className={`page-item ${i + 1 === pageNow ? 'active' : ''}`}
                   key={i}
                 >
@@ -180,6 +181,9 @@ function UserList() {
                       setPageNow(i + 1); //現在是第幾頁 = 索引+1 EX:[1(i=0),1,1,1,1] 0+1=第一頁
                     }}
                   >
+                    {/* 索引 0,1,2,3,4 */}
+                    {/* 頁碼 1,2,3,4,5  <--索引+1*/}
+                    {/* 索引值+1就是頁碼 */}
                     {i + 1}
                   </a>
                 </li>
