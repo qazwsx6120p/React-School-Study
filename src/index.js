@@ -61,10 +61,8 @@ import './index.css';
 import UseEffectUserListIdSort from './0609/5.useEffect-UserList-以ID排序/App';
 // import UseEffectUserListIdSort2 from './0609/6.userEffect-UserList-以ID排序-didUpdate解法/App';
 // import UseEffectUserListIdSort3 from './0609/7.userEffect-UserList-完全以didUpdate解法/App';
-<<<<<<< HEAD
 // import UseEffectUserPage from './0609/8.useEffect-分頁功能-介面/App';
 import UseEffectUserPage2 from './0609/9.useEffect-分頁功能-完成/App';
-
 
 //---------------------0614---------------------
 // import ReactBootstrap from './0614/1.react-bootstrap範例/App';
@@ -73,8 +71,6 @@ import UseEffectUserPage2 from './0609/9.useEffect-分頁功能-完成/App';
 // import App from './0614/3.router-基本範例/App';
 // import App from './0614/4.router-找不到頁面-多階層路由/App';
 import App from './0614/5.router-Link元件取代a-介面/App';
-=======
->>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
 
 import reportWebVitals from './reportWebVitals';
 
@@ -140,7 +136,6 @@ root.render(
     <UseEffectUserListIdSort />
     {/* <UseEffectUserListIdSort2 /> */}
     {/* <UseEffectUserListIdSort3 /> */}
-<<<<<<< HEAD
     {/* <UseEffectUserPage /> */}
     <UseEffectUserPage2 />
 
@@ -149,8 +144,6 @@ root.render(
     {/* <ReactIcons /> */}
     {/*----------0614-router----------*/}
     <App />
-=======
->>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
   </React.StrictMode>
 );
 
