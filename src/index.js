@@ -45,7 +45,7 @@ import './index.css';
 // import HTML5_4 from './0606/9.HTML5表單驗証-驗証訊息自訂位置呈現/App';
 // import HTML5_5 from './0606/10.HTML5表單驗証-加入checkbox與radio/App';
 // import HTML5_6 from './0606/11.HTML5表單驗証-密碼與確認密碼-自訂驗証/App';
-//---------------------0606---------------------
+//---------------------0607---------------------
 // import Refs from './0607/1.refs-與id的比較範例/App';
 // import App from './0607/2.生命周期-更新階段/App';
 // import Class from './0607/3.Class類別型元件-生命週期/App';
@@ -58,9 +58,10 @@ import './index.css';
 // import UseEffectUserList2 from './0609/2.useEffect-UserList-中文範例/App';
 // import UseEffectUserListError from './0609/3.useEffect-UserList-錯誤處理/App';
 // import UseEffectUserListFilterName from './0609/4.useEffect-UserList-搜尋姓名/App';
-// import UseEffectUserListIdSort from './0609/5.useEffect-UserList-以ID排序/App';
+import UseEffectUserListIdSort from './0609/5.useEffect-UserList-以ID排序/App';
 // import UseEffectUserListIdSort2 from './0609/6.userEffect-UserList-以ID排序-didUpdate解法/App';
 // import UseEffectUserListIdSort3 from './0609/7.userEffect-UserList-完全以didUpdate解法/App';
+<<<<<<< HEAD
 // import UseEffectUserPage from './0609/8.useEffect-分頁功能-介面/App';
 import UseEffectUserPage2 from './0609/9.useEffect-分頁功能-完成/App';
 
@@ -72,6 +73,8 @@ import UseEffectUserPage2 from './0609/9.useEffect-分頁功能-完成/App';
 // import App from './0614/3.router-基本範例/App';
 // import App from './0614/4.router-找不到頁面-多階層路由/App';
 import App from './0614/5.router-Link元件取代a-介面/App';
+=======
+>>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
 
 import reportWebVitals from './reportWebVitals';
 
@@ -121,7 +124,7 @@ root.render(
     {/* <HTML5_4 /> */}
     {/* <HTML5_5 /> */}
     {/* <HTML5_6 /> */}
-    {/*----------0606----------*/}
+    {/*----------0607----------*/}
     {/* <Refs /> */}
     {/* <App /> */}
     {/* <Class /> */}
@@ -134,9 +137,10 @@ root.render(
     {/* <UseEffectUserList2 /> */}
     {/* <UseEffectUserListError /> */}
     {/* <UseEffectUserListFilterName /> */}
-    {/* <UseEffectUserListIdSort /> */}
+    <UseEffectUserListIdSort />
     {/* <UseEffectUserListIdSort2 /> */}
     {/* <UseEffectUserListIdSort3 /> */}
+<<<<<<< HEAD
     {/* <UseEffectUserPage /> */}
     <UseEffectUserPage2 />
 
@@ -145,6 +149,8 @@ root.render(
     {/* <ReactIcons /> */}
     {/*----------0614-router----------*/}
     <App />
+=======
+>>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
   </React.StrictMode>
 );
 

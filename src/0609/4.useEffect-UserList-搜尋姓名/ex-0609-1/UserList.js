@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './UserList.css';
 
+
+//以server篩選
 function UserList() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +39,8 @@ function UserList() {
   const fetchUserSearch = async () => {
     try {
       const response = await fetch(
-        'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users?name_like=' + //<--- ?name_like= searchWord(搜尋字體的狀態)
+        //?name_like= searchWord(搜尋字體的狀態)
+        'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users?name_like=' +
           searchWord
       );
       const data = await response.json();
@@ -123,16 +126,18 @@ function UserList() {
           placeholder="輸入姓名"
           value={searchWord}
           onChange={(e) => {
-            setSearchWord(e.target.value); //更改SearchWord的狀態(打甚麼輸入甚麼)
+            //更改SearchWord的狀態(打甚麼輸入甚麼)
+            setSearchWord(e.target.value);
           }}
         />
         <button
           onClick={() => {
             // 開啟指示動畫
-            setIsLoading(true); //點擊更新Loading狀態為true
+            //點擊更新Loading狀態為true
+            setIsLoading(true);
 
             // 用searchWord進行向server重要資料
-            // 點擊執行fetchUserSearch函示(向伺服器要資料)
+            // 點擊執行fetchUserSearch函示(向伺服器要搜尋過後的資料)
             fetchUserSearch();
           }}
         >

@@ -77,8 +77,15 @@ function UserList() {
   useEffect(() => {
     // 開啟載入指示動畫
     setIsLoading(true);
+<<<<<<< HEAD
     // 向伺服器要第一次的資料
     fetchUser();
+=======
+
+    // 向伺服器要第一次的資料
+    fetchUser();
+
+>>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
     // 設定進入更新狀態的旗標
     setIsMount(true);
   }, []);
@@ -86,7 +93,11 @@ function UserList() {
   useEffect(() => {
     // 已經在更新階段
     if (isMount) {
+<<<<<<< HEAD
       // 開啟指示動畫，order有更新才會執行
+=======
+      // 開啟指示動畫
+>>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
       setIsLoading(true);
       fetchUserFilter();
     }
@@ -170,6 +181,12 @@ function UserList() {
         </button>
         <button
           onClick={() => {
+<<<<<<< HEAD
+=======
+            // 開啟指示動畫
+            setIsLoading(true);
+
+>>>>>>> 5fb1eff83c1f4c1f8ed77a33f9c0d05ae4d80336
             // 用order=desc進行向server重要資料
             // fetch在didUpdate裡進行，確保order已設定完成
             setOrder('desc');

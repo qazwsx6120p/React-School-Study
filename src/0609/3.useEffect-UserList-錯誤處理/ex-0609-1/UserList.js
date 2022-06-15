@@ -5,14 +5,14 @@ function UserList() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // 錯誤訊息用
+  // 紀錄錯誤訊息用
   const [error, setError] = useState('');
 
   // 向server獲取資料(get)
   const fetchUser = async () => {
     try {
       const response = await fetch(
-        'https://my-json-server123.typicode.com/eyesofkids/json-fake-data/users'
+        'https://my-json-server.typicode.com/eyesofkids/json-fake-data/users'
       );
       const data = await response.json();
 
@@ -22,6 +22,7 @@ function UserList() {
         //<--判斷data是否是陣列
         setUsers(data);
       } else {
+        //如果不是陣列可能是{}沒抓到資料，回傳以下錯誤訊息
         setError('伺服器目前無法回傳資料，請稍後重試'); //<--如果設定錯誤訊息(自己設的)回錯誤狀態內
       }
     } catch (e) {
@@ -85,12 +86,13 @@ function UserList() {
     </table>
   );
 
-  // 有錯誤訊息即呈現錯誤
+  // 有錯誤訊息即呈現錯誤，如果沒有正常顯示使用者資料Table
   const display = error !== '' ? error : displayTable;
 
   return (
     <>
       <h1>User List</h1>
+      {/* 載入動畫跑兩秒後變false顯示使用者資料Table */}
       {isLoading ? spinner : display}
     </>
   );
